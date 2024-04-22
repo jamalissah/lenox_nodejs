@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Jamal's Portfolio</title>
+        <style>* {
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
+        
+        :root{
+            --main-radius: 5px;
+            --main-padding: 10px;
+            --darkblue: #06022D;
+            --darkbrown:#996633;
+            --white: #ffffff;
+            --grey: #EFEFEF;
+        }
+        
+        .container{
+            font-family: "Libre Baskerville", serif;
+            height: 100%;
+            width: 100%;
+            background-color: #EEEEE6;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 0.2fr 0.5fr 0.5fr 0.5fr 0.7fr 0.4fr 0.2fr 0.1fr;
+            grid-template-areas:
+                "nav nav nav"
+                "about about about"
+                "experience experience experience"
+                "skills skills skills"
+                "projects projects projects"
+                "education education education"
+                "blog blog blog"
+                "footer footer footer"
+            ;
+        
+            grid-gap: 0.1rem;
+        }
+        
+        .nav {
+            grid-area: nav;
+            background-color: var(--darkbrown);
+            overflow: hidden;
+            display:flex;
+            align-items: center;
+            justify-content: space-between;
+            position:fixed; 
+            top: 0;
+            left: 2;
+            border-radius: var(--main-radius);
+            z-index: 1;
+            width: 98.65%;
+        }
+          
+        .nav a {
+            float: right;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+          
+        .nav a:hover {
+            background-color: var(--grey);
+            color: black;
+        }
+          
+        .nav .icon {
+            display: none;
+        }
+        
+        .nav h1{
+            color: white;
+        }
+        
+        .about{
+            grid-area: about;
+        }
+        
+        .about h1{
+            text-align: center;
+            margin-top:40px;
+            margin-bottom: 0px;
+            padding-top: 0px;
+        }
+        
+        .picture{
+            width: 45%;
+            float: left;
+            align-items: center;
+            padding: 0px;
+        }
+        
+        
+        .picture img{
+            margin-left: 80px;
+            margin-right: auto;
+            margin-top: 35px;
+            display: block;
+            border-radius: 10px;
+            height: 220px;
+            width: 350px;
+            position: absolute;
+           
+        }
+        
+        .summary{
+            text-align: justify;
+            margin: auto 5px auto auto;
+            float: right;
+            width: 55%;
+            padding: 20px;
+            padding-top: 2px;
+        }
+        
+        
+        .experience{
+            grid-area: experience;
+        }
+        
+        .experience h1{
+            text-align: center;
+        }
+        
+        .experience dt{
+            font-weight: bold;
+        }
+        
+        .education{
+            grid-area: education;
+        }
+        
+        .education h1{
+            text-align: center;
+        }
+        
+        .education dt{
+            font-weight: bold;
+        }
+        
+        
+        .skills{
+            grid-area: skills;
+            margin-bottom: 0px;
+        }
+        
+        .skills h1{
+            text-align: center;
+        }
+        
+        .hobbies dt{
+            font-weight: bold;
+        }
+        
+        .projects{
+            grid-area: projects;
+            padding: var(--main-padding);
+            margin-left:auto;
+            margin-right: auto;
+        }
+        
+        #projects{
+            text-align: center;
+            width: 100%;
+        }
+        
+        #projects .projbox{
+            margin: 10px;
+        }
+        
+        .projbox{
+            float: left;
+            width: 30%;
+            padding: var(--main-padding);
+        }
+        
+        .projbox h3{
+            text-align: center;
+        }
+        
+        .projbox img{
+            display: block;
+            width: 300px;
+            height: 200px;
+            border-radius: 10px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .projbox a{
+            text-decoration: none;
+            color: black;
+        }
+        
+        .projects img:hover{
+            transform: scale(1.2);
+        }
+        
+        .projbox img:hover{
+            transform: scale(1.2);
+        }
+        
+        .blog{
+            grid-area: blog;
+            padding: var(--main-padding);
+            margin-left:auto;
+            margin-right: auto;
+        }
+        
+        #blog{
+            text-align: center;
+            width: 100%;
+        }
+        
+        #blog .blogbox{
+            margin: 10px;
+        }
+        
+        .blogbox{
+            float: left;
+            width: 30%;
+            padding: var(--main-padding);
+        }
+        
+        .blogbox h3{
+            text-align: center;
+        }
+        
+        .blogbox img{
+            display: block;
+            width: 300px;
+            height: 200px;
+            border-radius: 10px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .blogbox a{
+            text-decoration: none;
+            color: black;
+        }
+        
+        .blog img:hover{
+            transform: scale(1.2);
+        }
+        
+        .blogbox img:hover{
+            transform: scale(1.2);
+        }
+        
+        footer{
+            grid-area: footer;
+            background-color: var(--darkblue);
+            color: white;
+            overflow: hidden;
+            border-radius: var(--main-radius);
+        }
+        
+        footer .leftside{
+            float: left;
+            display: flex;
+        }
+        
+        footer .leftside img{
+            max-width: 50px;
+            padding: 5px;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+        }
+        
+        footer .rightside{
+            float: right;
+        }
+        
+        footer a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            font-size: 17px;
+        }
+        
+        footer a:hover{
+            color: black;
+        }
+        
+        .rightside{
+            padding: 5px;
+        }
+        
+        .rightside img {
+            border-radius: 50%;
+            margin: 10px;
+            margin-bottom:0px;
+            max-width: 30px;
+            transition: transform 0.2s ease;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+        }
+          
+        .rightside img:hover {
+            transform: scale(1.5);
+        }
+        
+        @media only screen and (max-width:768px){
+            .container {
+                height: 100%;
+                grid-template-rows: 0.1fr 0.5fr 0.5fr 0.6fr 0.4fr 0.2fr 0.1fr;
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "nav nav"
+                    "about about"
+                    "experience experience"
+                    "skills skills"
+                    "projects projects"
+                    "education education"
+                    "blog blog"
+                    "footer footer"
+                    ;
+        
+                grid-gap: 0.1rem;
+            }
+        
+            
+        
+            .nav a:not(:first-child) {
+                display: none;
+            }
+        
+            .nav a.icon {
+              float: right;
+              display: block;
+            }
+        
+            .nav-responsive {
+                position: fixed;
+                background-color: var(--darkblue);
+                width: 100%;
+                border-radius: var(--main-radius);
+                z-index: 1;
+                top: 0px;
+                left: 0px;
+                overflow: hidden;
+                align-items: center;
+                justify-content: space-between;
+                margin-right: 0px;
+            }
+        
+          .nav-responsive a.icon {
+            position: absolute;
+            right: 0;
+            top: 0;
+          }
+          .nav-responsive a {
+            float: none;
+            display: block;
+            text-align: left;
+            color: #f2f2f2;
+            padding: 14px 16px;
+            text-decoration: none;
+          }
+        
+          .nav-responsive h1{
+            color: white;
+          }
+            
+            .about{
+                display: block;
+                margin-top: 140px;
+            }
+        
+            .picture{
+                width: 100%;
+                position: relative;
+                height: 300px;
+                align-items: center;
+                margin-bottom: 0px;
+                padding-bottom: 0px;
+            }
+        
+            .picture img {
+                height: 275px;
+                width: 550px;
+                border-radius: 10px;
+                margin-left: 90px;
+            }
+        
+            .summary{
+                margin-top: 0px;
+                padding-top: 0px;
+                width: 100%;
+                text-align: justify;
+            }
+        
+            .project{
+                display: block;
+            }
+        
+            .projbox{
+                width: 100%;
+            }
+        
+            .projbox h3 {
+                font-size: 1.2rem;
+            }
+        
+            .projbox img {
+                width: 400px;
+                height: 250px;
+                margin-bottom: 10px;
+            }
+        
+            .blog{
+                display: block;
+            }
+        
+            .blogbox{
+                width: 100%;
+            }
+        
+            footer{
+                width:100%;
+                height: 25%;
+                margin-top: 0px;
+                bottom: 0px;
+            }
+        }
+        
+        
+        
+        @media only screen and (max-width:500px){
+            .container {
+                height: 100%;
+                grid-template-rows: 0.1fr 0.5fr 0.5fr 0.6fr 0.4fr 0.2fr 0.1fr;
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "nav"
+                    "about"
+                    "experience"
+                    "skills"
+                    "projects"
+                    "education"
+                    "blog"
+                    "footer"
+                    ;
+        
+                grid-gap: 0.1rem;
+            }
+        
+            
+        
+            .nav a:not(:first-child) {
+                display: none;
+            }
+        
+            .nav a.icon {
+              float: right;
+              display: block;
+            }
+        
+            .nav-responsive {
+                position: fixed;
+                background-color: var(--darkblue);
+                width: 100%;
+                border-radius: var(--main-radius);
+                z-index: 1;
+                top: 0px;
+                left: 0px;
+                overflow: hidden;
+                align-items: center;
+                justify-content: space-between;
+                margin-right: 0px;
+            }
+        
+          .nav-responsive a.icon {
+            position: absolute;
+            right: 0;
+            top: 0;
+          }
+          .nav-responsive a {
+            float: none;
+            display: block;
+            text-align: left;
+            color: #f2f2f2;
+            padding: 14px 16px;
+            text-decoration: none;
+          }
+        
+          .nav-responsive h1{
+            color: white;
+          }
+            
+            .about{
+                display: block;
+                margin-top: 150px;
+            }
+        
+            .picture{
+                width: 100%;
+                position: relative;
+                height: 300px;
+                align-items: center;
+                margin-bottom: 0px;
+            }
+        
+            .picture img {
+                width: 400px;
+                height: 250px;
+                border-radius: 10px;
+                padding-right: auto;
+                margin-left: 35px;
+            }
+        
+            .summary{
+                margin-top: 0px;
+                padding-top: 0px;
+                width: 100%;
+                text-align: justify;
+            }
+        
+            .projects{
+                display: block;
+            }
+        
+            .projbox{
+                width: 100%;
+            }
+        
+            .projbox h3 {
+                font-size: 1.2rem;
+            }
+        
+            .projbox img {
+                width: 400px;
+                height: 250px;
+                margin-bottom: 10px;
+            }
+        
+            .blog{
+                display: block;
+            }
+        
+            .blogbox{
+                width: 100%;
+            }
+        
+            footer{
+                width:100%;
+                height: 25%;
+                margin-top: 0px;
+                bottom: 0px;
+            }
+        }
+        
+        
+        
+        @media only screen and (max-width:414px){
+            .container {
+                height: 100%;
+                grid-template-rows: 0.1fr 0.5fr 0.5fr 0.6fr 0.4fr 0.2fr 0.3fr;
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "nav"
+                    "about"
+                    "history"
+                    "pub"
+                    "gallery"
+                    "hobbies"
+                    "blog"
+                    "footer"
+                    ;
+        
+                grid-gap: 0.1rem;
+            }
+        
+            
+        
+            .nav a:not(:first-child) {
+                display: none;
+            }
+        
+            .nav a.icon {
+              float: right;
+              display: block;
+            }
+        
+            .nav-responsive {
+                position: fixed;
+                background-color: var(--darkblue);
+                width: 100%;
+                border-radius: var(--main-radius);
+                z-index: 1;
+                top: 0px;
+                left: 0px;
+                overflow: hidden;
+                align-items: center;
+                justify-content: space-between;
+                margin-right: 0px;
+            }
+        
+          .nav-responsive a.icon {
+            position: absolute;
+            right: 0;
+            top: 0;
+          }
+          .nav-responsive a {
+            float: none;
+            display: block;
+            text-align: left;
+            color: #f2f2f2;
+            padding: 14px 16px;
+            text-decoration: none;
+          }
+        
+          .nav-responsive h1{
+            color: white;
+          }
+            
+            .about{
+                display: block;
+                margin-top: 120px;
+            }
+        
+            .picture{
+                width: 300px;
+                position: relative;
+                height: 300px;
+                align-items: center;
+                margin-bottom: 0px;
+                padding-bottom: 0px;
+            }
+        
+            .picture img {
+                width: 320px;
+                height: 250px;
+                border-radius: 10px;
+            }
+        
+            .summary{
+                margin-top: 0px;
+                padding-top: 0px;
+                width: 100%;
+                text-align: justify;
+            }
+        
+            .projects{
+                display: block;
+            }
+        
+            .projbox{
+                width: 100%;
+            }
+        
+            .projbox h3 {
+                font-size: 1.2rem;
+            }
+        
+            .projbox img {
+                width: 400px;
+                height: 250px;
+                margin-bottom: 10px;
+            }
+        
+            .blog{
+                display: block;
+            }
+        
+            .blogbox{
+                width: 100%;
+            }
+        
+            footer{
+                width:100%;
+                height: 25%;
+                bottom: 0px;
+            }
+        }
+        
+        </style>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+    <body>
+
+        <nav>   
+            <section>
+                <div class="nav" id="nav">
+                        <h1>JAMAL iSSAH</h1>
+                    
+                        <a href="#about" class="active">About</a>
+                        <a href="#experience">Experience</a>
+                        <a href="#skills">Skills</a>
+                        <a href="#projects">Projects</a>
+                        <a href="#education">Education</a>
+                        <a href="#blog">Blog</a>
+                        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                        <i class="fa fa-bars"></i>
+                        </a>
+                  </div>
+            </section>   
+        </nav>
+        
+        <div class = "container">
+
+                <section class="about" id="about">
+                    <h1>ABOUT</h1>
+                    
+                    <div class = "picture">
+                        <img src = "img/jamal.jpg" alt = "Jamal Issah">
+                    </div>
+        
+                    <div class = "summary">
+                        <blockquote>
+                            <br>Hello, I am Jamal Issah; a dedicated international student currently in the University of New Haven. Originally
+                            from Ghana in West Africa, I completed my Bachelors degree in Computer Engineering and am currently on course to
+                            obtain my Masters degree in Computer Science. I have a history of extensive IT and networking support with organizations
+                            such as the Ghana Armed Forces, the University of Ghana, among others. <br><br>
+
+                            In my spare time, I enjoy reading, creating visual art, and playing soccer. It is my goal to use software engineering 
+                            as a means to educate, entertain and solve real world problems.
+                        </blockquote>
+                    </div>
+                </section>
+
+                <section class="experience" id="experience">
+                    <h1>EXPERIENCE</h1>
+    
+                    <div class = "experience">
+                        <dl>
+                            <dt>October 2022 - May 2024: Senior Systems Admin at the University of New Haven (Center for Learning Resources)</dt>
+                            <dd>
+                                Increased tutor visits through impactful email outreach achieving a 60% growth in engagement rates and a 45% rise in visits.
+                                Achieved 100% accuracy in updating  53 tutors' schedules and the representation of 47 supported courses, reflecting high data integrity.
+                                Successfully conducted over 100 tutoring in  C, C++, Python, Java, and Networking, surpassing the initial goal of 50.
+                            </dd>
+                            <br>
+
+                            <dt>Sept 2020 - Feb 2022: IT Systems Analyst at Rook Plus Incorporated</dt>
+                            <dd>
+                                Developed, tested, and maintained the company website using HTML and JavaScript to serve over 50 clients.
+                                Trained 4 staff members in information security, as well as how to securely access and retrieve customer information from the system.
+                            	Created online forms for students that stored data using NoSQL and could be retrieved in CSV format.
+                            </dd>
+                            <br>
+
+                            <dt>Sept 2019 – Aug 2020: IT Support Analyst at the Ghana Armed Forces Directorate of IT</dt>
+                            <dd>
+                                Managed devices and passwords and oversaw data backups and system security operations (e.g., user authorization, firewalls).
+                                Performed maintenance and repairs on desktop computers, printers, etc. for the five departments in the Ghana Armed Forces.
+                                Configured PC operating systems (Windows 10)  and installed required application software(Microsoft Office Suite, Adobe Suite, etc.)
+                            </dd><br>
+
+                            <dt>June 2018– Aug 2018: IT Security & Networks Intern at University of Ghana Computing Systems</dt>
+                            <dd>
+                                Terminated and installed CAT 5/6 cables with RJ-45 connectors,  fiber-optic cables and switches to maintain Local Area Network on campus.
+                                Configured user computers using Remote Desktop Services in the Microsoft Active Directory in order to install applications.
+                                Provided end user networking support  and troubleshooting on a case-by-case basis over a help desk ticketing system.
+                            </dd><br>
+ 
+                        </dl>
+                    </div>
+                </section>
+
+                <section class="skills" id="skills">
+                    <h1>SKILLS</h1>
+    
+                    <div class = "skills">
+
+                        <p>
+                            <i>Languages</i>: C, C++, Python, Java, SQL, HTML/CSS, JavaScript.
+                        </p>
+
+                        <p>
+                            <i>Technical Skills</i>: Microsoft Office 365, Windows 10, Linux,  VMWare, Active Directory, SQL, Desktop Applications, Apple, IT Support, Hardware/software troubleshooting, PowerShell, Image Deployment.
+                        </p>
+
+                        <p>
+                            <i>Soft skills</i>: Teamwork, Leadership, Adaptability, Problem Solving, Self-organization, Communication, Troubleshooting.
+                        </p>
+
+                        <p>
+                            <i>Interests</i>: Software Quality Assurance, Project Management, Computer Networking, Risk Management,  Data Mining, Cyber Security.
+                        </p>
+                    
+                    </div>    
+                </section>
+
+                <section class="projects" id="projects">
+                    <h1>PROJECTS</h1>
+                    <div class="projbox left">
+                        <img src="img/python.png" alt="Python Encryption GUI">
+                        <h3> Python Encryption GUI</h3>
+                    </div>
+                    <div class="projbox mid">
+                        <img src="img/calc.png" alt="JAVA Calculator">
+                        <h3> JAVA Calculator </h3>
+                    </div>
+                    <div class="projbox right">
+                        <img src="img/vuejs.png" alt="Vue.JS Shopping Cart">
+                        <h3> Vue.JS Shopping Cart </h3>
+                    </div>
+                </section>
+
+                <section class="education" id="education">
+                    <h1>EDUCATION</h1>
+    
+                    <div class = "education">
+                        
+                        <dl>
+
+                            <dt>January 2022 - May 2024: University of New Haven - Master of Science, Computer Science</dt>
+                            <dd>
+                                GPA: 3.93 / 4.0
+                               <br>Relevant Coursework: C++,Python, Operating Systems, Database Management, Systems Programming, Data Mining, Full Stack  Web Development.
+                            </dd><br>
+
+                            <dt>September 2015 - July 2019: Kwame Nkrumah University of Science & Technology - Bachelor of Science, Computer Engineering</dt>
+                            <dd>GPA: 3.21/4.0</dd><br>
+
+                        </dl>
+                    </div>    
+                </section>
+
+                <section class="blog" id="blog">
+                    <h1>BLOG</h1>
+                    <div class="blogbox left">
+                        <img src="https://th.bing.com/th/id/OIP.Fqby9XXwBAD4yJmFULN4_gHaHx?rs=1&pid=ImgDetMain" alt="Blog Post">
+                        <h3>The Benefits & Risks of AI</h3>
+                    </div>
+                    <div class="blogbox mid">
+                        <img src="https://th.bing.com/th/id/OIP.Fqby9XXwBAD4yJmFULN4_gHaHx?rs=1&pid=ImgDetMain" alt="Blog Post">
+                        <h3>Has The World Embraced Remote Work?</h3>
+                    </div>
+                    <div class="blogbox right">
+                        <img src="https://th.bing.com/th/id/OIP.Fqby9XXwBAD4yJmFULN4_gHaHx?rs=1&pid=ImgDetMain" alt="Blog Post">
+                        <h3>Exploring the MEVN Stack</h3>
+                    </div>
+                </section>
+
+                
+    
+        </div>
+        <footer>
+            <div class="leftside">
+                <p>&copy; 2024</p>
+            </div>
+            <div class="rightside">        
+                <a href="#"><img src="img/footer2.png" alt=""></a>
+                <a href="#"><img src="img/footer1.png" alt=""></a>
+                <a href="#"><img src="img/footer3.png" alt=""></a>
+            </div>
+        </footer>
+
+        <script>
+            function myFunction() {
+            var x = document.getElementById("nav");
+            if (x.className === "nav") {
+                x.className += "-responsive";
+            } else {
+                x.className = "nav";
+            }
+            } 
+        </script>
+    </body>
+</html>
